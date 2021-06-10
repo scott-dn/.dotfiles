@@ -7,7 +7,7 @@ SPACESHIP_CHAR_SUFFIX=" ››› "
 SPACESHIP_CHAR_SYMBOL=""
 SPACESHIP_TIME_SHOW=true
 
-plugins=(helm kops kubectl aws k3d docker docker-compose nvm npm git fzf golang zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(helm kops kubectl aws docker docker-compose nvm npm git fzf golang zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -15,6 +15,8 @@ alias vi="nvim"
 alias vim="nvim"
 alias cat="bat"
 alias l="exa -al"
+
+alias lg="lazygit"
 
 ################################################################################
 # This speeds up pasting w/ autosuggest
@@ -34,5 +36,4 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 # Autoupdate update zsh plugins
 export UPDATE_ZSH_DAYS=13
 ZSH_CUSTOM_AUTOUPDATE_QUIET=true
-
 

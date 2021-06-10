@@ -224,7 +224,11 @@ let g:NERDTreeIgnore = [
     \ '\.idea$[[dir]]',
     \ '\.sass-cache$',
     \ '^\.settings$',
+    \ '^.husky$',
+    \ '^node_modules$',
     \ '^build$',
+    \ '^public$',
+    \ '^dist$',
     \ '^bin$',
     \ '^\.vim$',
     \ '^\.classpath$',
@@ -701,9 +705,9 @@ au FileType sql set tabstop=2
 " Language: TypeScript
 "----------------------------------------------
 au FileType typescript set expandtab
-au FileType typescript set shiftwidth=4
-au FileType typescript set softtabstop=4
-au FileType typescript set tabstop=4
+au FileType typescript set shiftwidth=2
+au FileType typescript set softtabstop=2
+au FileType typescript set tabstop=2
 
 "----------------------------------------------
 " Language: vimscript
