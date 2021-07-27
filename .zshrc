@@ -37,3 +37,10 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 export UPDATE_ZSH_DAYS=13
 ZSH_CUSTOM_AUTOUPDATE_QUIET=true
 
+################################################################################
+# git floating window
+LANGUAGE=en_US.UTF-8
+LANG=en_US.UTF-8
+LC_CTYPE=en_US.UTF-8
+LC_ALL=en_US.UTF-8
+

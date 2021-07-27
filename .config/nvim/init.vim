@@ -17,7 +17,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
 
 " LSP
-Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-denite'
 
 " c++
@@ -67,6 +67,8 @@ set nowritebackup
 set noswapfile
 set nojoinspaces
 
+set cmdheight=2
+
 set ttimeoutlen=10
 set timeoutlen=500
 
@@ -79,6 +81,8 @@ set autoindent
 set smartindent
 set nowrap
 
+set updatetime=300
+
 set shortmess+=c
 
 set splitright
@@ -87,6 +91,13 @@ set splitbelow
 syntax on
 
 set background=dark
+
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 " one dark theme
 let g:onedark_terminal_italics=1
@@ -360,11 +371,26 @@ nmap <leader>ac  <Plug>(coc-codeaction)
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
 
-" Create mappings for function text object, requires document symbols feature of languageserver.
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server.
 xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
 omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
+
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
 
 " Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
 nmap <silent> <C-d> <Plug>(coc-range-select)
@@ -457,7 +483,7 @@ nmap <silent> ;l <Plug>(easymotion-overwin-line)
 
 " Auto change root of the project
 let g:rooter_change_directory_for_non_project_files = 'current'
-let g:rooter_patterns = ['Cargo.tom', 'package.json', '.git/', 'go.mod', '.gradle/']
+let g:rooter_patterns = ['Cargo.toml', 'package.json', '.git/', 'go.mod', '.gradle/']
 
 " " DENITE
 call denite#custom#var('buffer', 'date_format', '')
