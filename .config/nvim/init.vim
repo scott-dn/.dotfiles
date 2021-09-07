@@ -564,9 +564,9 @@ autocmd filetype cpp nnoremap <LEADER>tcp :0r ~/.config/nvim/templates/cpp/compe
 " => Rust
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Compile, test, run
-autocmd filetype rust nnoremap <F4> :w <bar> exec '!cargo build'<CR>
-autocmd filetype rust nnoremap <F5> :w <bar> exec '!cargo run'<CR>
-autocmd filetype rust nnoremap <F6> :w <bar> exec '!cargo test -- --show-output'<CR>
+autocmd filetype rust nnoremap <F4> :w <bar> exec '!cargo test -- --show-output'<CR>
+autocmd filetype rust nnoremap <F5> :w <bar> exec '!cargo build'<CR>
+autocmd filetype rust nnoremap <F6> :w <bar> exec '!cargo run'<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
