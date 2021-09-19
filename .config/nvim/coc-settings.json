@@ -35,20 +35,5 @@
         }
       }
     }
-  },
-  "cSpell.userWords": [
-    "MPII",
-    "MSETI",
-    "SDKs",
-    "SETI",
-    "actix",
-    "ccls",
-    "fsyntax",
-    "isystem",
-    "objc",
-    "objcpp",
-    "pino",
-    "supertrait",
-    "xctoolchain"
-  ]
+  }
 }
