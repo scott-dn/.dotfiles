@@ -568,6 +568,7 @@ autocmd filetype rust nnoremap <F4> :w <bar> exec '!cargo test -- --show-output'
 autocmd filetype rust nnoremap <F5> :w <bar> exec '!cargo build'<CR>
 autocmd filetype rust nnoremap <F6> :w <bar> exec '!cargo run'<CR>
 autocmd filetype rust nnoremap <F8> :w <bar> exec '!cargo clippy'<CR>
+autocmd filetype rust nnoremap <F9> :w <bar> exec '!cargo fmt --all'<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
