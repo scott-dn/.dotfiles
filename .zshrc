@@ -7,7 +7,7 @@ SPACESHIP_CHAR_SUFFIX=" ››› "
 SPACESHIP_CHAR_SYMBOL=""
 SPACESHIP_TIME_SHOW=true
 
-plugins=(helm kops kubectl aws docker docker-compose nvm npm yarn git fzf cargo golang zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(helm kops kubectl aws docker docker-compose nvm npm yarn git fzf cargo rustup golang zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
