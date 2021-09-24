@@ -570,6 +570,9 @@ autocmd filetype rust nnoremap <F6> :w <bar> exec '!cargo run'<CR>
 autocmd filetype rust nnoremap <F8> :w <bar> exec '!cargo clippy'<CR>
 autocmd filetype rust nnoremap <F9> :w <bar> exec '!cargo fmt --all'<CR>
 
+" all in one
+autocmd filetype rust nnoremap <F10> :w <bar> exec '!cargo build && cargo test -- --show-output && cargo clippy && cargo fmt --all'<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Java
