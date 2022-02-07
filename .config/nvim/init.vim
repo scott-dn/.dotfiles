@@ -3,7 +3,6 @@ call plug#begin('~/.vim/plugged')
 " Utilities
 Plug 'scrooloose/nerdtree'
 " Plug 'editorconfig/editorconfig-vim'
-Plug 'tpope/vim-fugitive'
 Plug 'Shougo/denite.nvim'
 Plug 'airblade/vim-rooter'
 Plug 'easymotion/vim-easymotion'
@@ -14,7 +13,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'honza/vim-snippets'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'majutsushi/tagbar'
 
 " LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -28,7 +26,6 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Syntax & colors highlight
 Plug 'sheerun/vim-polyglot'
-Plug 'jaxbot/semantic-highlight.vim'
 
 " Themes
 Plug 'ryanoasis/vim-devicons'
