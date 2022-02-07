@@ -219,6 +219,7 @@ let g:tagbar_compact = 1
 " => NERDTree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <F7> :NERDTreeToggle<cr>
+nmap <leader>n :NERDTreeFind<CR>
 let g:NERDTreeWinSize=35
 let g:NERDSpaceDelims = 1
 let NERDTreeShowHidden=1
@@ -242,6 +243,11 @@ let g:NERDTreeIgnore = [
     \ '^\.classpath$',
     \ '^.*\.class$'
     \ ]
+
+" Start NERDTree when Vim starts with a directory argument.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+    \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
