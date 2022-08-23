@@ -7,7 +7,7 @@ SPACESHIP_CHAR_SUFFIX=" ››› "
 SPACESHIP_CHAR_SYMBOL=""
 SPACESHIP_TIME_SHOW=true
 
-plugins=(helm kops kubectl aws docker docker-compose nvm npm yarn git fzf rust golang zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(autoupdate helm kops kubectl aws docker docker-compose nvm npm yarn git rust golang zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -34,8 +34,8 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 
 ################################################################################
 # Autoupdate update zsh plugins
-export UPDATE_ZSH_DAYS=13
-ZSH_CUSTOM_AUTOUPDATE_QUIET=true
+export UPDATE_ZSH_DAYS=7
+# ZSH_CUSTOM_AUTOUPDATE_QUIET=true
 
 ################################################################################
 # git floating window
