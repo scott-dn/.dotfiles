@@ -1,11 +1,30 @@
 export ZSH="$HOME/.oh-my-zsh"
+export LIBRARY_PATH="$LIBRARY_PATH:$(brew --prefix)/lib"
 
 # theme
 ZSH_THEME="spaceship"
 SPACESHIP_CHAR_SYMBOL="👻 ››› "
 SPACESHIP_TIME_SHOW=true
 
-plugins=(autoupdate fzf helm kops kubectl aws docker docker-compose nvm npm yarn git rust golang zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(
+  autoupdate
+  fzf
+  helm
+  kops
+  kubectl
+  aws
+  docker
+  docker-compose
+  nvm
+  npm
+  yarn
+  git
+  rust
+  golang
+  zsh-completions
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
