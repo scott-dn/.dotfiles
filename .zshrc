@@ -1,6 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 export LIBRARY_PATH="$LIBRARY_PATH:$(brew --prefix)/lib"
-export PATH="/Users/scott-dang/.local/share/solana/install/active_release/bin:$PATH"
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 
 # theme
 ZSH_THEME="spaceship"
