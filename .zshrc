@@ -52,3 +52,8 @@ source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ################################################################################
 # Autoupdate update zsh plugins
 export UPDATE_ZSH_DAYS=3
+
+################################################################################
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
