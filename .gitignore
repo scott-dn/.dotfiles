@@ -1,0 +1,16 @@
+/*
+!/.ideavimrc
+!/.gitignore
+!/alacritty.yml
+!/.alacritty.toml
+!/.tmux.conf
+!/.zshrc
+!/LICENSE
+!/README.md
+!/screenshot.png
+
+!/.config
+/.config/*
+!/.config/nvim
+/.config/nvim/*
+!/.config/nvim/init.vim

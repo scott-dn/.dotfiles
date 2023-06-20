@@ -43,14 +43,8 @@ set encoding=utf8
 set nocursorline
 set number
 
-if (empty($TMUX))
-  if (has("nvim"))
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set termguicolors
 
 set noerrorbells " no bell
 set novisualbell
@@ -100,18 +94,7 @@ endif
 let g:onedark_terminal_italics=1
 let g:onedark_termcolors=256
 let g:airline_theme='onedark'
-" onedark.vim override: Don't set a background color when running in a terminal;
-" just use the terminal's background color
-" `gui` is the hex color code used in GUI mode/nvim true-color mode
-" `cterm` is the color code used in 256-color mode
-" `cterm16` is the color code used in 16-color mode
-if (has("autocmd") && !has("gui_running"))
-  augroup colorset
-    autocmd!
-    let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
-    autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white }) " `bg` will not be styled since there is no `bg` setting
-  augroup END
-endif
+
 colorscheme onedark
 
 " Integrating with powerline fonts
@@ -248,60 +231,6 @@ let g:NERDTreeIgnore = [
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
     \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Floating Term
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let s:float_term_border_win = 0
-let s:float_term_win = 0
-function! FloatTerm(...)
-  " Configuration
-  let height = float2nr((&lines - 2) * 0.6)
-  let row = float2nr((&lines - height) / 2)
-  let width = float2nr(&columns * 0.6)
-  let col = float2nr((&columns - width) / 2)
-  " Border Window
-  let border_opts = {
-        \ 'relative': 'editor',
-        \ 'row': row - 1,
-        \ 'col': col - 2,
-        \ 'width': width + 4,
-        \ 'height': height + 2,
-        \ 'style': 'minimal'
-        \ }
-  " Terminal Window
-  let opts = {
-        \ 'relative': 'editor',
-        \ 'row': row,
-        \ 'col': col,
-        \ 'width': width,
-        \ 'height': height,
-        \ 'style': 'minimal'
-        \ }
-  let top = "╭" . repeat("─", width + 2) . "╮"
-  let mid = "│" . repeat(" ", width + 2) . "│"
-  let bot = "╰" . repeat("─", width + 2) . "╯"
-  let lines = [top] + repeat([mid], height) + [bot]
-  let bbuf = nvim_create_buf(v:false, v:true)
-  call nvim_buf_set_lines(bbuf, 0, -1, v:true, lines)
-  let s:float_term_border_win = nvim_open_win(bbuf, v:true, border_opts)
-  let buf = nvim_create_buf(v:false, v:true)
-  let s:float_term_win = nvim_open_win(buf, v:true, opts)
-  " Styling
-  call setwinvar(s:float_term_border_win, '&winhl', 'Normal:Normal')
-  call setwinvar(s:float_term_win, '&winhl', 'Normal:Normal')
-  if a:0 == 0
-    terminal
-  else
-    call termopen(a:1)
-  endif
-  startinsert
-  " Close border window when terminal window close
-  autocmd TermClose * ++once :bd! | call nvim_win_close(s:float_term_border_win, v:true)
-endfunction
-
-nnoremap TT :call FloatTerm()<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -455,55 +384,6 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-
-" Floating Term
-let s:float_term_border_win = 0
-let s:float_term_win = 0
-function! FloatTerm(...)
-  " Configuration
-  let height = float2nr((&lines - 2) * 0.6)
-  let row = float2nr((&lines - height) / 2)
-  let width = float2nr(&columns * 0.6)
-  let col = float2nr((&columns - width) / 2)
-  " Border Window
-  let border_opts = {
-        \ 'relative': 'editor',
-        \ 'row': row - 1,
-        \ 'col': col - 2,
-        \ 'width': width + 4,
-        \ 'height': height + 2,
-        \ 'style': 'minimal'
-        \ }
-  " Terminal Window
-  let opts = {
-        \ 'relative': 'editor',
-        \ 'row': row,
-        \ 'col': col,
-        \ 'width': width,
-        \ 'height': height,
-        \ 'style': 'minimal'
-        \ }
-  let top = "╭" . repeat("─", width + 2) . "╮"
-  let mid = "│" . repeat(" ", width + 2) . "│"
-  let bot = "╰" . repeat("─", width + 2) . "╯"
-  let lines = [top] + repeat([mid], height) + [bot]
-  let bbuf = nvim_create_buf(v:false, v:true)
-  call nvim_buf_set_lines(bbuf, 0, -1, v:true, lines)
-  let s:float_term_border_win = nvim_open_win(bbuf, v:true, border_opts)
-  let buf = nvim_create_buf(v:false, v:true)
-  let s:float_term_win = nvim_open_win(buf, v:true, opts)
-  " Styling
-  call setwinvar(s:float_term_border_win, '&winhl', 'Normal:Normal')
-  call setwinvar(s:float_term_win, '&winhl', 'Normal:Normal')
-  if a:0 == 0
-    terminal
-  else
-    call termopen(a:1)
-  endif
-  startinsert
-  " Close border window when terminal window close
-  autocmd TermClose * ++once :bd! | call nvim_win_close(s:float_term_border_win, v:true)
-endfunction
 
 " Vim easymotion
 nmap <silent> ;; <Plug>(easymotion-overwin-f)

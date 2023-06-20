@@ -1,11 +1,10 @@
 export ZSH="$HOME/.oh-my-zsh"
-export LIBRARY_PATH="$LIBRARY_PATH:$(brew --prefix)/lib"
-export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+export PATH="/opt/homebrew/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 
 # theme
 ZSH_THEME="spaceship"
-SPACESHIP_CHAR_SYMBOL="👻 ››› "
+SPACESHIP_CHAR_SYMBOL="🚀 ››› "
 SPACESHIP_TIME_SHOW=true
 
 plugins=(
@@ -34,7 +33,6 @@ alias vi="nvim"
 alias vim="nvim"
 alias cat="bat"
 alias l="exa -al"
-
 alias lg="lazygit"
 
 ################################################################################
@@ -53,13 +51,4 @@ source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ################################################################################
 # Autoupdate update zsh plugins
-export UPDATE_ZSH_DAYS=2
-# ZSH_CUSTOM_AUTOUPDATE_QUIET=true
-
-################################################################################
-# git floating window
-LANGUAGE=en_US.UTF-8
-LANG=en_US.UTF-8
-LC_CTYPE=en_US.UTF-8
-LC_ALL=en_US.UTF-8
-
+export UPDATE_ZSH_DAYS=3
