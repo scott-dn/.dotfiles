@@ -32,7 +32,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'joshdick/onedark.vim'
 
 " Markdown preview
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
 
 call plug#end()
 
@@ -184,14 +184,6 @@ nnoremap YY :%y+<cr>
 " move block in visual mode
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Tagbar
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <F8> :TagbarToggle<cr>
-let g:tagbar_sort = 0
-let g:tagbar_compact = 1
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NERDTree
@@ -449,12 +441,6 @@ nnoremap <leader>ff :<C-u>DeniteCursorWord grep:.<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Semantic highlight
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <F9> :SemanticHighlightToggle<cr>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => C++ for competitive programming
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Compile and run c++
@@ -475,14 +461,6 @@ autocmd filetype rust nnoremap <F9> :w <bar> exec '!cargo fmt --all'<CR>
 
 " all in one
 autocmd filetype rust nnoremap <F10> :w <bar> exec '!cargo build && cargo test -- --show-output && cargo clippy && cargo fmt --all'<CR>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Java
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd FileType java setlocal shiftwidth=4 softtabstop=4
-let g:semanticEnableFileTypes = ['java']
-let java_highlight_all = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
