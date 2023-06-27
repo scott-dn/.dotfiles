@@ -1,6 +1,7 @@
 /*
 !/.ideavimrc
 !/.gitignore
+!/.gitconfig
 !/alacritty.yml
 !/.alacritty.toml
 !/.tmux.conf
@@ -11,6 +12,9 @@
 
 !/.config
 /.config/*
+
 !/.config/nvim
-/.config/nvim/*
-!/.config/nvim/init.vim
+
+!/.config/lazygit
+/.config/lazygit/*
+!/.config/lazygit/config.yml
