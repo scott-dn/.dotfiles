@@ -18,6 +18,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-denite'
 
+Plug 'github/copilot.vim'
+
 " c++
 
 
@@ -505,3 +507,12 @@ let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'errcheck']
 au FileType go nmap <leader>gl :GoMetaLinter<cr>
 au FileType go nmap <leader>gc <Plug>(go-coverage-toggle)
 au FileType go nmap <leader>gd <Plug>(go-doc)
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" copilot
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:copilot_no_tab_map = v:true
+imap <silent><script><expr> <C-k> copilot#Accept('\<CR>')
+imap <C-n> <Plug>(copilot-next)
+imap <C-p> <Plug>(copilot-previous)
