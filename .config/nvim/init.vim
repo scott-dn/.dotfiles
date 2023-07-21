@@ -168,9 +168,7 @@ noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
 
-" Keep my lines 110 chars at most
-" Highlight column number 110 with color
-set colorcolumn=110
+set colorcolumn=80
 highlight ColorColumn ctermbg=darkgray
 
 " Toggle highlight search
