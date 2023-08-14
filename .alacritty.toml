@@ -74,6 +74,11 @@ chars = "\u001B\r"
 key = "Return"
 mods = "Alt"
 
+[[keyboard.bindings]]
+chars = "\u001B\r"
+key = "Return"
+mods = "Shift"
+
 [window]
 decorations = "buttonless"
 dynamic_title = true
