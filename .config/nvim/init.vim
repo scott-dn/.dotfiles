@@ -371,6 +371,25 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+let g:coc_global_extensions =
+  \[
+  \  'coc-docker',
+  \  'coc-go',
+  \  'coc-highlight',
+  \  'coc-html',
+  \  'coc-html-css-support',
+  \  'coc-htmlhint',
+  \  'coc-json',
+  \  'coc-markdownlint',
+  \  'coc-pairs',
+  \  'coc-prettier',
+  \  'coc-rust-analyzer',
+  \  'coc-sh',
+  \  'coc-snippets',
+  \  'coc-spell-checker',
+  \  'coc-tsserver',
+  \  'coc-yaml'
+  \]
 
 " Vim easymotion
 nmap <silent> ;; <Plug>(easymotion-overwin-f)
