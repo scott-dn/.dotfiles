@@ -28,6 +28,6 @@ lg = !"git lg1"
 [user]
 	email = scott.dn91@gmail.com
 	name = Scott Dn
-	signingkey = 0AC3A4DD687C9C23
+	signingkey = 98B3C868955FA0FB
 [commit]
 	gpgsign = true
