@@ -72,17 +72,13 @@ mods = "Control"
 [[keyboard.bindings]]
 chars = "\u001B\r"
 key = "Return"
-mods = "Alt"
-
-[[keyboard.bindings]]
-chars = "\u001B\r"
-key = "Return"
 mods = "Shift"
 
 [window]
 decorations = "buttonless"
 dynamic_title = true
 startup_mode = "SimpleFullscreen"
+option_as_alt = "OnlyLeft"
 
 [window.dimensions]
 columns = 150
