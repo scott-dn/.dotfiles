@@ -7,6 +7,11 @@ M.ui = {
   },
   tabufline = {
     show_numbers = true
+  },
+  hl_override = {
+    Comment = {
+      italic = true
+    }
   }
 }
 M.plugins = 'custom.plugins'
