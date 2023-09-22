@@ -3,6 +3,10 @@ local M = {}
 M.scott = {
   n = {
     [";"] = { ":", "command mode", opts = { nowait = true } },
+    ["qq"] = { ":q!<CR>", "quit", opts = { nowait = true } },
+    ["<leader>s"] = { ":w!<CR>", "save", opts = { nowait = true } },
+    ["<C-v>"] = { ":vs!<CR>", "vertical split", opts = { nowait = true } },
+    ["<C-s>"] = { ":sp!<CR>", "horizontal split", opts = { nowait = true } },
 
     -- tabbuf
     ["<A-1>"] = { function() vim.api.nvim_set_current_buf(vim.t.bufs[1]) end, "GoToTab1", opts = { nowait = true } },
@@ -42,6 +46,14 @@ M.scott = {
     -- search
     ["n"] = { "nzz", "search keep cusor" },
     ["N"] = { "Nzz", "search keep cusor" },
+
+    -- resize
+    ["<M-F>"] = { ":vertical resize +10<CR>", "resize window with width+10" },
+    ["<M-B>"] = { ":vertical resize -10<CR>", "resize window with width-10" },
+    ["<M-Right>"] = { ":vertical resize +10<CR>", "resize window with width+10 (alacritty hack)" }, -- FIXME: please
+    ["<M-Left>"] = { ":vertical resize -10<CR>", "resize window with width-10 (alacritty hack)" }, -- FIXME: please
+    ["<M-Up>"] = { ":resize -5<CR>", "resize window with height-5" },
+    ["<M-Down>"] = { ":resize +5<CR>", "resize window with height+5" },
   },
 
   i = {
