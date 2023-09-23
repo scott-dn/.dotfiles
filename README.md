@@ -1,5 +1,22 @@
 # .dotfiles
 
+### Update
+```bash
+# nvim
+:NvChadUpdate
+:Lazy
+:MasonInstallAll
+
+# brew
+$ brew upgrade; brew update
+
+# zsh
+$ omz update && upgrade_oh_my_zsh_custom
+
+# alacritty
+```
+
+
 #### Tools
 
 1. Zsh:
