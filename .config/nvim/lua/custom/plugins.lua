@@ -47,9 +47,6 @@ local plugings = {
       },
       {
         "folke/trouble.nvim",
-        config = function()
-          require("custom.configs.trouble")
-        end,
       },
     },
     config = function()

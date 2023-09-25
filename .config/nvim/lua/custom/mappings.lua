@@ -73,4 +73,35 @@ M.scott = {
   },
 }
 
+-- override
+M.nvterm = {
+  t = {
+    ["<A-x>"] = {
+      function()
+        require("nvterm.terminal").toggle "horizontal"
+      end,
+      "Toggle horizontal term",
+    },
+  },
+  n = {
+    ["<A-x>"] = {
+      function()
+        require("nvterm.terminal").toggle "horizontal"
+      end,
+      "Toggle horizontal term",
+    },
+  },
+}
+
+M.trouble = {
+  n = {
+    ["<leader>xx"] = { function() require("trouble").open() end, "Open diagnostic", },
+    ["<leader>xw"] = { function() require("trouble").open("workspace_diagnostics") end, "Open workspace diagnostic", },
+    ["<leader>xd"] = { function() require("trouble").open("document_diagnostics") end, "Open document diagnostic" },
+    ["<leader>xq"] = { function() require("trouble").open("quickfix") end, "quickfix" },
+    ["<leader>xl"] = { function() require("trouble").open("loclist") end, "loclist" },
+    ["gR"] = { function() require("trouble").open("lsp_references") end, "LSP lsp_references" },
+  }
+}
+
 return M
