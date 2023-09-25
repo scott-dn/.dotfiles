@@ -45,6 +45,12 @@ local plugings = {
 					require("custom.configs.formatter")
 				end,
 			},
+			{
+				"folke/trouble.nvim",
+				config = function()
+					require("custom.configs.trouble")
+				end,
+			},
 		},
 		config = function()
 			require("plugins.configs.lspconfig")
