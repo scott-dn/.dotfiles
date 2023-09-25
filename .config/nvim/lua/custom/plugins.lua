@@ -37,6 +37,9 @@ local plugings = {
     },
   },
   {
+      "mfussenegger/nvim-dap"
+  },
+  {
     "neovim/nvim-lspconfig",
     dependencies = {
       {
@@ -52,6 +55,16 @@ local plugings = {
     config = function()
       require("plugins.configs.lspconfig")
       require("custom.configs.lspconfig")
+    end,
+  },
+  {
+    "simrat39/rust-tools.nvim",
+    ft = "rust",
+    opts = function()
+      return require("custom.configs.rust-tools")
+    end,
+    config = function(_, opts)
+      require("rust-tools").setup(opts)
     end,
   },
   {
