@@ -95,11 +95,11 @@ M.nvterm = {
 
 M.trouble = {
   n = {
-    ["<leader>xx"] = { function() require("trouble").open() end, "Open diagnostic", },
-    ["<leader>xw"] = { function() require("trouble").open("workspace_diagnostics") end, "Open workspace diagnostic", },
-    ["<leader>xd"] = { function() require("trouble").open("document_diagnostics") end, "Open document diagnostic" },
-    ["<leader>xq"] = { function() require("trouble").open("quickfix") end, "quickfix" },
-    ["<leader>xl"] = { function() require("trouble").open("loclist") end, "loclist" },
+    ["<space>a"] = { function() require("trouble").open() end, "Open diagnostic", },
+    ["<space>w"] = { function() require("trouble").open("workspace_diagnostics") end, "Open workspace diagnostic", },
+    ["<space>d"] = { function() require("trouble").open("document_diagnostics") end, "Open document diagnostic" },
+    ["<space>q"] = { function() require("trouble").open("quickfix") end, "quickfix" },
+    ["<space>l"] = { function() require("trouble").open("loclist") end, "loclist" },
     ["gR"] = { function() require("trouble").open("lsp_references") end, "LSP lsp_references" },
   }
 }
