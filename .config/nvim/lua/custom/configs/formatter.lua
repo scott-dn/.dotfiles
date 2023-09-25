@@ -7,12 +7,9 @@ require("formatter").setup({
 		lua = {
 			require("formatter.filetypes.lua").stylua,
 			function()
-				-- Supports conditional formatting
 				if util.get_current_buffer_file_name() == "special.lua" then
 					return nil
 				end
-				-- Full specification of configurations is down below and in Vim help
-				-- files
 				return {
 					exe = "stylua",
 					args = {
