@@ -5,7 +5,7 @@
 # nvim
 :NvChadUpdate
 :Lazy
-:MasonInstallAll
+:MasonUpdate
 
 # brew
 $ brew upgrade; brew update
