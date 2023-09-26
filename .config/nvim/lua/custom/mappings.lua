@@ -104,4 +104,12 @@ M.trouble = {
   }
 }
 
+M.dap = {
+  n = {
+    ["<leader>db"] = { ":DapToggleBreakpoint<CR>", "Toggle Breakpoint" },
+    ["<leader>dui"] = { function() require("dapui").toggle() end, "Open debugging sidebar" },
+    ["<leader>dr"] = { ":DapContinue<CR>", "Start or continue the debugger" },
+  },
+}
+
 return M

@@ -1,43 +1,20 @@
 local plugings = {
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        -- defaults
-        "vim",
-        "lua",
-
-        "git_config",
-        "gitignore",
-
-        "html",
-        "css",
-
-        "json",
-        "yaml",
-        "toml",
-
-        "dockerfile",
-
-        "bash",
-        "sql",
-
-        "cmake",
-        "make",
-
-        "c",
-        "cpp",
-        "rust",
-        "zig",
-        "go",
-        "javascript",
-        "typescript",
-        "tsx",
-      },
-    },
+    opts = require("custom.configs.hl"),
   },
   {
-      "mfussenegger/nvim-dap"
+    "mfussenegger/nvim-dap",
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function()
+      require("custom.configs.dapui")
+    end,
+  },
+  {
+    "folke/trouble.nvim",
   },
   {
     "neovim/nvim-lspconfig",
@@ -47,9 +24,6 @@ local plugings = {
         config = function()
           require("custom.configs.formatter")
         end,
-      },
-      {
-        "folke/trouble.nvim",
       },
     },
     config = function()
@@ -77,6 +51,7 @@ local plugings = {
         "shfmt",
         "taplo",
         "rust-analyzer",
+        "codelldb",
       },
     },
   },
