@@ -7,9 +7,6 @@ require("formatter").setup({
     lua = {
       require("formatter.filetypes.lua").stylua,
       function()
-        if util.get_current_buffer_file_name() == "special.lua" then
-          return nil
-        end
         return {
           exe = "stylua",
           args = {
