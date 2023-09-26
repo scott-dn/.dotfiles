@@ -4,16 +4,6 @@ local plugings = {
     opts = require("custom.configs.hl"),
   },
   {
-    "mfussenegger/nvim-dap",
-  },
-  {
-    "rcarriga/nvim-dap-ui",
-    dependencies = "mfussenegger/nvim-dap",
-    config = function()
-      require("custom.configs.dapui")
-    end,
-  },
-  {
     "folke/trouble.nvim",
   },
   {

@@ -4,7 +4,7 @@ M.scott = {
   n = {
     [";"] = { ":", "command mode" },
     ["q"] = { "<Nop>" },
-    ["qq"] = { ":q<CR>", "close buffer" },
+    ["qq"] = { ":q!<CR>", "close buffer" },
     ["QQ"] = { function () require("nvchad.tabufline").closeAllBufs(); vim.cmd("q!") end, "close all buffer and exit" },
     ["<leader>s"] = { ":w!<CR>", "save" },
     ["<C-v>"] = { ":vs!<CR>", "vertical split" },
@@ -97,6 +97,7 @@ M.nvterm = {
 
 M.trouble = {
   n = {
+    ["<space><space>"] = { function() require("trouble").toggle() end, "Open diagnostic", },
     ["<space>a"] = { function() require("trouble").open() end, "Open diagnostic", },
     ["<space>w"] = { function() require("trouble").open("workspace_diagnostics") end, "Open workspace diagnostic", },
     ["<space>d"] = { function() require("trouble").open("document_diagnostics") end, "Open document diagnostic" },
@@ -104,14 +105,6 @@ M.trouble = {
     ["<space>l"] = { function() require("trouble").open("loclist") end, "loclist" },
     ["gR"] = { function() require("trouble").open("lsp_references") end, "LSP lsp_references" },
   }
-}
-
-M.dap = {
-  n = {
-    ["<leader>db"] = { ":DapToggleBreakpoint<CR>", "Toggle Breakpoint" },
-    ["<leader>dui"] = { function() require("dapui").toggle() end, "Open debugging sidebar" },
-    ["<leader>dr"] = { ":DapContinue<CR>", "Start or continue the debugger" },
-  },
 }
 
 return M
