@@ -5,7 +5,14 @@ M.scott = {
     [";"] = { ":", "command mode" },
     ["q"] = { "<Nop>" },
     ["qq"] = { ":q!<CR>", "close buffer" },
-    ["QQ"] = { function () require("nvchad.tabufline").closeAllBufs(); vim.cmd("q!") end, "close all buffer and exit" },
+    ["QQ"] = {
+      function()
+        require("nvchad.tabufline").closeAllBufs()
+        require("nvim-tree.api").tree.close()
+        vim.cmd("q!")
+      end,
+      "close all buffers and exit",
+    },
     ["<leader>s"] = { ":w!<CR>", "save" },
     ["<C-v>"] = { ":vs!<CR>", "vertical split" },
     ["<C-x>"] = { ":sp!<CR>", "horizontal split" },
