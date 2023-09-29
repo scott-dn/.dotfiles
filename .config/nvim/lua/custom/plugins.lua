@@ -42,7 +42,7 @@ local plugings = {
         "shfmt",
         "taplo",
         "rust-analyzer",
-        "codelldb",
+        "clang-format"
       },
     },
   },
