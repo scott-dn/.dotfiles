@@ -39,6 +39,7 @@ local plugings = {
         "lua-language-server",
         "stylua",
         "typescript-language-server",
+        "prettier",
         "prettierd",
         "shfmt",
         "taplo",
