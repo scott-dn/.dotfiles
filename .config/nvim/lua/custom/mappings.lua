@@ -100,11 +100,12 @@ M.nvterm = {
 M.trouble = {
   n = {
     ["<space><space>"] = { function() require("trouble").toggle() end, "Open diagnostic", },
-    ["<space>a"] = { function() require("trouble").open() end, "Open diagnostic", },
     ["<space>w"] = { function() require("trouble").open("workspace_diagnostics") end, "Open workspace diagnostic", },
     ["<space>d"] = { function() require("trouble").open("document_diagnostics") end, "Open document diagnostic" },
     ["<space>q"] = { function() require("trouble").open("quickfix") end, "quickfix" },
     ["<space>l"] = { function() require("trouble").open("loclist") end, "loclist" },
+    ["<space>]"] = { function() require("trouble").next({skip_groups = true, jump = true}) end, "jump to the next item, skipping the groups" },
+    ["<space>["] = { function() require("trouble").previous({skip_groups = true, jump = true}) end, "jump to the previous item, skipping the groups" },
     ["gR"] = { function() require("trouble").open("lsp_references") end, "LSP lsp_references" },
   }
 }
