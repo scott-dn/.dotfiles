@@ -57,6 +57,23 @@ require("formatter").setup({
     cpp = {
       require("formatter.filetypes.cpp").clangformat,
     },
+    sql = {
+      function()
+        return {
+          exe = "sqlfluff",
+          args = {
+            "format",
+            "--disable-progress-bar",
+            "--nocolor",
+            -- "--dialect",
+            -- "postgres",
+            "-",
+          },
+          stdin = true,
+          ignore_exitcode = true,
+        }
+      end
+    },
 
     ["*"] = {
       require("formatter.filetypes.any").remove_trailing_whitespace,
