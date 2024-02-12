@@ -12,7 +12,6 @@ M.scott = {
     ["<C-v>"] = { ":vs!<CR>", "vertical split" },
     ["<C-x>"] = { ":sp!<CR>", "horizontal split" },
     ["FF"] = { ":Format<CR>", "Format" },
-    ["<leader>n"] = { ":NvimTreeFindFile<CR>", "nvimtree find file" },
 
     -- tabbuf
     ["<A-1>"] = { function() vim.api.nvim_set_current_buf(vim.t.bufs[1]) end, "GoToTab1" },
