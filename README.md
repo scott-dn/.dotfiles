@@ -3,9 +3,8 @@
 ### Update
 ```bash
 # nvim
-:NvChadUpdate
 :Lazy
-:MasonUpdate
+:Mason
 
 # brew
 $ brew upgrade; brew update
