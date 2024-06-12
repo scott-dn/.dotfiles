@@ -5,6 +5,7 @@ export PATH="/usr/local/go/bin:$PATH"
 export PATH="$HOME/go/bin/:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 
 # theme
 ZSH_THEME="spaceship"
