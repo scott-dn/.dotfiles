@@ -23,6 +23,7 @@ plugins=(
   docker-compose
   nvm
   npm
+  pnpm
   yarn
   git
   rust
