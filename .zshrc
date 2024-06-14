@@ -28,6 +28,7 @@ plugins=(
   git
   rust
   golang
+  solana
   zsh-completions
   zsh-autosuggestions
   zsh-syntax-highlighting
