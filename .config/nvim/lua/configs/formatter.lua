@@ -60,14 +60,9 @@ require("formatter").setup({
     sql = {
       function()
         return {
-          exe = "sqlfluff",
+          exe = "pg_format",
           args = {
-            "format",
-            "--disable-progress-bar",
-            "--nocolor",
-            -- "--dialect",
-            -- "postgres",
-            "-",
+            "-i",
           },
           stdin = true,
           ignore_exitcode = true,
