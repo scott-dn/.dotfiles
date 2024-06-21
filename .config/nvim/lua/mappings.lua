@@ -122,4 +122,7 @@ for name, modes in pairs(M) do
   end
 end
 
+-- escapse terminal mode
+map("t", "jk", "<C-\\><C-n>")
+
 return M
