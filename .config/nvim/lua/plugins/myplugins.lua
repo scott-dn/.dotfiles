@@ -1,7 +1,7 @@
 local plugings = {
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = require("configs.hl"),
+    opts = require "configs.hl",
   },
   {
     "folke/trouble.nvim",
@@ -12,13 +12,13 @@ local plugings = {
       {
         "mhartington/formatter.nvim",
         config = function()
-          require("configs.formatter")
+          require "configs.formatter"
         end,
       },
     },
     config = function()
-      require("nvchad.configs.lspconfig")
-      require("configs.lspconfig")
+      require "nvchad.configs.lspconfig"
+      require "configs.lspconfig"
     end,
   },
   {
@@ -26,11 +26,42 @@ local plugings = {
     ft = "rust",
     dependencies = "neovim/nvim-lspconfig",
     opts = function()
-      return require("configs.rust-tools")
+      return require "configs.rust-tools"
     end,
     config = function(_, opts)
       require("rust-tools").setup(opts)
     end,
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    lazy = false,
+    event = "InsertEnter",
+    cmd = "Copilot",
+    build = ":Copilot auth",
+    config = function()
+      require("copilot").setup(opts)
+    end,
+  },
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      {
+        "zbirenbaum/copilot-cmp",
+        config = function()
+          require("copilot_cmp").setup()
+        end,
+      },
+    },
+    opts = {
+      sources = {
+        { name = "nvim_lsp", group_index = 2 },
+        { name = "copilot", group_index = 2 },
+        { name = "luasnip", group_index = 2 },
+        { name = "buffer", group_index = 2 },
+        { name = "nvim_lua", group_index = 2 },
+        { name = "path", group_index = 2 },
+      },
+    },
   },
   {
     "williamboman/mason.nvim",
@@ -44,7 +75,7 @@ local plugings = {
         "shfmt",
         "taplo",
         "rust-analyzer",
-        "clang-format"
+        "clang-format",
       },
     },
   },
