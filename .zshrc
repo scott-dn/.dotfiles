@@ -14,6 +14,7 @@ SPACESHIP_TIME_SHOW=true
 
 plugins=(
   autoupdate
+  aptos
   fzf
   helm
   kops
