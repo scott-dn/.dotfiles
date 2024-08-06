@@ -4,9 +4,6 @@ local plugings = {
     opts = require "configs.hl",
   },
   {
-    "folke/trouble.nvim",
-  },
-  {
     "neovim/nvim-lspconfig",
     dependencies = {
       {
@@ -33,36 +30,42 @@ local plugings = {
     end,
   },
   {
-    "zbirenbaum/copilot.lua",
-    lazy = false,
-    event = "InsertEnter",
-    cmd = "Copilot",
-    build = ":Copilot auth",
-    config = function()
-      require("copilot").setup(opts)
-    end,
+    "folke/trouble.nvim",
+    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    cmd = "Trouble",
   },
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      {
-        "zbirenbaum/copilot-cmp",
-        config = function()
-          require("copilot_cmp").setup()
-        end,
-      },
-    },
-    opts = {
-      sources = {
-        { name = "nvim_lsp", group_index = 2 },
-        { name = "copilot", group_index = 2 },
-        { name = "luasnip", group_index = 2 },
-        { name = "buffer", group_index = 2 },
-        { name = "nvim_lua", group_index = 2 },
-        { name = "path", group_index = 2 },
-      },
-    },
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   lazy = false,
+  --   event = "InsertEnter",
+  --
+  --   cmd = "Copilot",
+  --   build = ":Copilot auth",
+  --   config = function()
+  --     require("copilot").setup(opts)
+  --   end,
+  -- },
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   dependencies = {
+  --     {
+  --       "zbirenbaum/copilot-cmp",
+  --       config = function()
+  --         require("copilot_cmp").setup()
+  --       end,
+  --     },
+  --   },
+  --   opts = {
+  --     sources = {
+  --       { name = "nvim_lsp", group_index = 2 },
+  --       { name = "copilot", group_index = 2 },
+  --       { name = "luasnip", group_index = 2 },
+  --       { name = "buffer", group_index = 2 },
+  --       { name = "nvim_lua", group_index = 2 },
+  --       { name = "path", group_index = 2 },
+  --     },
+  --   },
+  -- },
   {
     "williamboman/mason.nvim",
     opts = {
