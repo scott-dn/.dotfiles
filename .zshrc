@@ -40,7 +40,13 @@ source $ZSH/oh-my-zsh.sh
 alias vi="nvim"
 alias vim="nvim"
 alias cat="bat"
-alias l="exa -al"
+
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+
 alias lg="lazygit"
 
 ################################################################################
