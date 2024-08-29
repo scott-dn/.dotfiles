@@ -8,7 +8,7 @@ vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 
 vim.opt.list = true
-vim.opt.listchars = { tab = "»»", trail = "·", extends = "→", precedes = "←" }
+vim.opt.listchars = { tab = "│ ", trail = "·", extends = "→", precedes = "←" }
 
 -- auto save
 vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {

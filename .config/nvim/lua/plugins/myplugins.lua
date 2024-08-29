@@ -14,7 +14,7 @@ local plugings = {
       },
     },
     config = function()
-      require "nvchad.configs.lspconfig"
+      require("nvchad.configs.lspconfig").defaults()
       require "configs.lspconfig"
     end,
   },
@@ -34,38 +34,6 @@ local plugings = {
     opts = {}, -- for default options, refer to the configuration section for custom setup.
     cmd = "Trouble",
   },
-  -- {
-  --   "zbirenbaum/copilot.lua",
-  --   lazy = false,
-  --   event = "InsertEnter",
-  --
-  --   cmd = "Copilot",
-  --   build = ":Copilot auth",
-  --   config = function()
-  --     require("copilot").setup(opts)
-  --   end,
-  -- },
-  -- {
-  --   "hrsh7th/nvim-cmp",
-  --   dependencies = {
-  --     {
-  --       "zbirenbaum/copilot-cmp",
-  --       config = function()
-  --         require("copilot_cmp").setup()
-  --       end,
-  --     },
-  --   },
-  --   opts = {
-  --     sources = {
-  --       { name = "nvim_lsp", group_index = 2 },
-  --       { name = "copilot", group_index = 2 },
-  --       { name = "luasnip", group_index = 2 },
-  --       { name = "buffer", group_index = 2 },
-  --       { name = "nvim_lua", group_index = 2 },
-  --       { name = "path", group_index = 2 },
-  --     },
-  --   },
-  -- },
   {
     "williamboman/mason.nvim",
     opts = {
@@ -79,6 +47,9 @@ local plugings = {
         "taplo",
         "rust-analyzer",
         "clang-format",
+        "gopls",
+        "gofumpt",
+        "goimports-reviser",
       },
     },
   },

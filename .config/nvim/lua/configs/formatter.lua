@@ -1,6 +1,6 @@
-local util = require("formatter.util")
+local util = require "formatter.util"
 
-require("formatter").setup({
+require("formatter").setup {
   logging = true,
   log_level = vim.log.levels.WARN,
   filetype = {
@@ -20,7 +20,6 @@ require("formatter").setup({
         }
       end,
     },
-
     sh = {
       require("formatter.filetypes.sh").shfmt(),
     },
@@ -51,6 +50,15 @@ require("formatter").setup({
     toml = {
       require("formatter.filetypes.toml").taplo(),
     },
+    go = {
+      function()
+        return {
+          exe = "goimports-reviser",
+        }
+      end,
+      require("formatter.filetypes.go").golines(),
+      require("formatter.filetypes.go").gofumpt(),
+    },
     rust = {
       require("formatter.filetypes.rust").rustfmt(),
     },
@@ -67,11 +75,10 @@ require("formatter").setup({
           stdin = true,
           ignore_exitcode = true,
         }
-      end
+      end,
     },
-
     ["*"] = {
       require("formatter.filetypes.any").remove_trailing_whitespace,
     },
   },
-})
+}
