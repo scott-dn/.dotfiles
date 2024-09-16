@@ -16,6 +16,8 @@ local opts = {
 
     "dockerfile",
 
+    "proto",
+
     "bash",
     "sql",
 

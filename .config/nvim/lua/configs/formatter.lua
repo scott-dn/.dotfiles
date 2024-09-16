@@ -77,6 +77,9 @@ require("formatter").setup {
         }
       end,
     },
+    proto = {
+      require("formatter.filetypes.proto").buf_format(),
+    },
     ["*"] = {
       require("formatter.filetypes.any").remove_trailing_whitespace,
     },
