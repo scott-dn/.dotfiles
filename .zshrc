@@ -1,8 +1,6 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 export XDG_CONFIG_HOME="$HOME/.config"
-export PATH="/usr/local/go/bin:$PATH"
-export PATH="$HOME/go/bin/:$PATH"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
@@ -61,17 +59,12 @@ pastefinish() {
 }
 zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
-source $ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ################################################################################
 # Autoupdate update zsh plugins
 export UPDATE_ZSH_DAYS=5
 
 ################################################################################
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
 
