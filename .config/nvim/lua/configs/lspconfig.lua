@@ -38,3 +38,8 @@ lspconfig.gopls.setup {
     },
   },
 }
+
+lspconfig.pbls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}

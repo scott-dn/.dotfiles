@@ -45,7 +45,7 @@ M.mason = {
     "golines",
 
     -- protobuf
-    "buf-language-server",
+    "pbls",
     "buf",
   },
 }
