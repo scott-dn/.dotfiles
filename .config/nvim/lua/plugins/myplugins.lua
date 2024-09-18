@@ -34,24 +34,6 @@ local plugings = {
     opts = {}, -- for default options, refer to the configuration section for custom setup.
     cmd = "Trouble",
   },
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "lua-language-server",
-        "stylua",
-        "typescript-language-server",
-        "prettier",
-        "prettierd",
-        "shfmt",
-        "taplo",
-        "rust-analyzer",
-        "clang-format",
-        "gopls",
-        "gofumpt",
-        "goimports-reviser",
-      },
-    },
-  },
+  { "williamboman/mason.nvim" },
 }
 return plugings
