@@ -34,6 +34,26 @@ local plugings = {
     opts = {}, -- for default options, refer to the configuration section for custom setup.
     cmd = "Trouble",
   },
-  { "williamboman/mason.nvim" },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = function()
+      local config = require "nvchad.configs.telescope"
+      local telescopeConfig = require "telescope.config"
+
+      local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
+      table.insert(vimgrep_arguments, "--hidden")
+      table.insert(vimgrep_arguments, "--glob")
+      table.insert(vimgrep_arguments, "!**/.git/*")
+
+      config.defaults.vimgrep_arguments = vimgrep_arguments
+      config.pickers = {
+        find_files = {
+          find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+        },
+      }
+
+      return config
+    end,
+  },
 }
 return plugings
