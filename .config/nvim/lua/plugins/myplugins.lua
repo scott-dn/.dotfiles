@@ -55,5 +55,13 @@ local plugings = {
       return config
     end,
   },
+  {
+    "hedyhli/outline.nvim",
+    lazy = true,
+    keys = {
+      { "<leader>o", "<cmd>Outline<CR>", desc = "Toggle outline" },
+    },
+    opts = {},
+  },
 }
 return plugings
