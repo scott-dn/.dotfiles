@@ -4,6 +4,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 
 # theme
 ZSH_THEME="spaceship"
