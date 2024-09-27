@@ -35,6 +35,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+ZSH_HIGHLIGHT_STYLES[comment]='fg=#808080'
+
 alias vi="nvim"
 alias vim="nvim"
 alias cat="bat"
