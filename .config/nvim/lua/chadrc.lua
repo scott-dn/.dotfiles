@@ -1,19 +1,21 @@
 ---@type ChadrcConfig
 local M = {}
+
 M.ui = {
-  theme = "onedark",
   statusline = {
     theme = "vscode_colored",
   },
-  tabufline = {
-    show_numbers = true,
-  },
+}
+
+M.base46 = {
+  theme = "gatekeeper",
+
   hl_override = {
-    Comment = {
-      italic = true,
-    },
+    Comment = { italic = true },
+    ["@comment"] = { italic = true },
   },
 }
+
 M.mason = {
   cmd = true,
   pkgs = {
