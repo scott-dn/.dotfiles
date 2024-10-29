@@ -1,6 +1,12 @@
 ---@type ChadrcConfig
 local M = {}
 
+M.ui = {
+  statusline = {
+    theme = "vscode_colored",
+  },
+}
+
 M.base46 = {
   theme = "onedark",
 
