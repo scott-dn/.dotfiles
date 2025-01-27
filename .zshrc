@@ -5,6 +5,7 @@ export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # theme
 ZSH_THEME="spaceship"
@@ -49,6 +50,8 @@ alias lla='ls -la'
 alias lt='ls --tree'
 
 alias lg="lazygit"
+
+alias python="python3"
 
 ################################################################################
 # This speeds up pasting w/ autosuggest
