@@ -29,6 +29,7 @@ M.mason = {
 
     -- bash/shell
     "shfmt",
+    "bash-language-server",
 
     -- toml
     "taplo",
@@ -49,6 +50,10 @@ M.mason = {
     -- protobuf
     "pbls",
     "buf",
+
+    -- docker
+    "docker-compose-language-service",
+    "dockerfile-language-server",
   },
 }
 return M

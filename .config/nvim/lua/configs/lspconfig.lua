@@ -43,3 +43,18 @@ lspconfig.pbls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
+
+lspconfig.docker_compose_language_service.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+lspconfig.dockerls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+
+lspconfig.bashls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
