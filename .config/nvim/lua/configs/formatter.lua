@@ -23,6 +23,9 @@ require("formatter").setup {
     sh = {
       require("formatter.filetypes.sh").shfmt(),
     },
+    html = {
+      require("formatter.filetypes.html").prettierd,
+    },
     css = {
       require("formatter.filetypes.css").prettierd,
     },
