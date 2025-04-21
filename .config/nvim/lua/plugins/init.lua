@@ -22,6 +22,16 @@ local plugings = {
     "mrcjkb/rustaceanvim",
     version = "^6",
     lazy = false,
+    init = function()
+      vim.g.rustaceanvim = {
+        server = {
+          on_attach = function(client, bufnr)
+            local configs = require "nvchad.configs.lspconfig"
+            configs.on_attach(client, bufnr)
+          end,
+        },
+      }
+    end,
   },
   {
     "folke/trouble.nvim",
