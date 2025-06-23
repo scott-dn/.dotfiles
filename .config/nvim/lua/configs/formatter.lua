@@ -83,6 +83,9 @@ require("formatter").setup {
     proto = {
       require("formatter.filetypes.proto").buf_format(),
     },
+    python = {
+      require("formatter.filetypes.python").ruff(),
+    },
     ["*"] = {
       require("formatter.filetypes.any").remove_trailing_whitespace,
     },

@@ -57,6 +57,10 @@ M.mason = {
 
     -- postgres
     "postgrestools",
+
+    --  python
+    "pyrefly",
+    "ruff",
   },
 }
 return M

@@ -32,6 +32,7 @@ local opts = {
     "javascript",
     "typescript",
     "tsx",
+    "python",
   },
 }
 return opts
