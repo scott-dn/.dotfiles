@@ -14,7 +14,7 @@ SPACESHIP_TIME_SHOW=true
 
 plugins=(
   autoupdate
-  aptos
+  # aptos # manual
   fzf
   helm
   kops
@@ -29,7 +29,7 @@ plugins=(
   git
   rust
   golang
-  solana # manual
+  # solana # manual
   zsh-completions
   zsh-autosuggestions
   zsh-syntax-highlighting
