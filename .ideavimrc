@@ -2,4 +2,3 @@ set visualbell
 set noerrorbells
 let mapleader = ","
 inoremap jk <esc>
-
