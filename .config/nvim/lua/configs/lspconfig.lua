@@ -3,10 +3,9 @@ local configs = require "nvchad.configs.lspconfig"
 local on_attach = configs.on_attach
 local capabilities = configs.capabilities
 
-local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 
-lspconfig.clangd.setup {
+vim.lsp.config["clangd"] = {
   on_attach = function(client, bufnr)
     -- client.server_capabilities.signatureHelpProvider = false
     on_attach(client, bufnr)
@@ -14,12 +13,12 @@ lspconfig.clangd.setup {
   capabilities = capabilities,
 }
 
-lspconfig.ts_ls.setup {
+vim.lsp.config["ts_ls"] = {
   on_attach = on_attach,
   capabilities = capabilities,
 }
 
-lspconfig.gopls.setup {
+vim.lsp.config["gopls"] = {
   on_attach = on_attach,
   capabilities = capabilities,
   cmd = { "gopls" },
@@ -39,27 +38,27 @@ lspconfig.gopls.setup {
   },
 }
 
-lspconfig.pbls.setup {
+vim.lsp.config["pbls"] = {
   on_attach = on_attach,
   capabilities = capabilities,
 }
 
-lspconfig.docker_compose_language_service.setup {
+vim.lsp.config["docker_compose_language_service"] = {
   on_attach = on_attach,
   capabilities = capabilities,
 }
 
-lspconfig.dockerls.setup {
+vim.lsp.config["dockerls"] = {
   on_attach = on_attach,
   capabilities = capabilities,
 }
 
-lspconfig.bashls.setup {
+vim.lsp.config["bashls"] = {
   on_attach = on_attach,
   capabilities = capabilities,
 }
 
-lspconfig.postgres_lsp.setup {
+vim.lsp.config["postgres_lsp"] = {
   on_attach = on_attach,
   capabilities = capabilities,
 }
