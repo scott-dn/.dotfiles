@@ -61,6 +61,9 @@ M.mason = {
     --  python
     "pyrefly",
     "ruff",
+
+    -- terraform
+    "terraform-ls",
   },
 }
 return M

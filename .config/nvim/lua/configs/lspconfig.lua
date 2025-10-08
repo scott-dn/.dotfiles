@@ -1,29 +1,4 @@
-local configs = require "nvchad.configs.lspconfig"
-
-local on_attach = configs.on_attach
-local capabilities = configs.capabilities
-
-local util = require "lspconfig/util"
-
-vim.lsp.config["clangd"] = {
-  on_attach = function(client, bufnr)
-    -- client.server_capabilities.signatureHelpProvider = false
-    on_attach(client, bufnr)
-  end,
-  capabilities = capabilities,
-}
-
-vim.lsp.config["ts_ls"] = {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
-
-vim.lsp.config["gopls"] = {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = { "gopls" },
-  filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+vim.lsp.config("gopls", {
   settings = {
     gopls = {
       gofumpt = true,
@@ -36,31 +11,15 @@ vim.lsp.config["gopls"] = {
       },
     },
   },
-}
-
-vim.lsp.config["pbls"] = {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
-
-vim.lsp.config["docker_compose_language_service"] = {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
-
-vim.lsp.config["dockerls"] = {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
-
-vim.lsp.config["bashls"] = {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
-
-vim.lsp.config["postgres_lsp"] = {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
+})
 
 vim.lsp.enable "pyrefly"
+vim.lsp.enable "clangd"
+vim.lsp.enable "ts_ls"
+vim.lsp.enable "gopls"
+vim.lsp.enable "pbls"
+vim.lsp.enable "docker_compose_language_service"
+vim.lsp.enable "dockerls"
+vim.lsp.enable "bashls"
+vim.lsp.enable "postgres_lsp"
+vim.lsp.enable "terraformls"

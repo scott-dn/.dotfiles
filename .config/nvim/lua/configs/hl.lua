@@ -33,6 +33,7 @@ local opts = {
     "typescript",
     "tsx",
     "python",
+    "terraform",
   },
 }
 return opts
