@@ -53,6 +53,8 @@ alias lg="lazygit"
 
 alias python="python3"
 
+alias tf='terraform'
+
 ################################################################################
 # This speeds up pasting w/ autosuggest
 # https://github.com/zsh-users/zsh-autosuggestions/issues/238
@@ -79,5 +81,6 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 
 export GPG_TTY=$(tty)
 
-autoload -U +X bashcompinit && bashcompinit
+################################################################################
+# terraform auto complete
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
