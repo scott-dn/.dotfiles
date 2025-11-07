@@ -6,6 +6,7 @@ export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="/Applications/Godot.app/Contents/MacOS:$PATH"
 
 # theme
 ZSH_THEME="spaceship"
@@ -55,6 +56,7 @@ alias lg="lazygit"
 alias python="python3"
 
 alias tf='terraform'
+alias gd='Godot'
 
 ################################################################################
 # This speeds up pasting w/ autosuggest
