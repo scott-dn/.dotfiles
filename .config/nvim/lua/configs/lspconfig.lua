@@ -23,3 +23,5 @@ vim.lsp.enable "dockerls"
 vim.lsp.enable "bashls"
 vim.lsp.enable "postgres_lsp"
 vim.lsp.enable "terraformls"
+
+vim.lsp.enable "gdscript"
