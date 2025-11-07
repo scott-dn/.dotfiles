@@ -56,7 +56,7 @@ M.mason = {
     "dockerfile-language-server",
 
     -- postgres
-    "postgrestools",
+    "postgres-language-server",
 
     --  python
     "pyrefly",
