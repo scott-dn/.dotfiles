@@ -1,7 +1,7 @@
 local util = require "formatter.util"
 
 require("formatter").setup {
-  logging = true,
+  logging = false,
   log_level = vim.log.levels.WARN,
   filetype = {
     lua = {
@@ -85,6 +85,21 @@ require("formatter").setup {
     },
     python = {
       require("formatter.filetypes.python").ruff(),
+    },
+    gdscript = {
+      function()
+        return {
+          exe = "gdscript-formatter",
+          args = {
+            "--use-spaces",
+            "--reorder-code",
+            "--indent-size",
+            "4",
+          },
+          stdin = false,
+          ignore_exitcode = true,
+        }
+      end,
     },
     ["*"] = {
       require("formatter.filetypes.any").remove_trailing_whitespace,
