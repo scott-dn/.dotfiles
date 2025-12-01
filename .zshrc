@@ -87,3 +87,7 @@ export GPG_TTY=$(tty)
 ################################################################################
 # terraform auto complete
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/scottdang/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
