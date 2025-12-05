@@ -1,4 +1,5 @@
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "100"
+vim.o.relativenumber =true
 
 vim.wo.wrap = false
 
