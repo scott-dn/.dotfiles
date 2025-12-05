@@ -1,5 +1,14 @@
 local plugings = {
   {
+    "nvim-tree.lua",
+    opts = {
+      view = {
+        width = 40,
+        relativenumber = true,
+      },
+    },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = require "configs.hl",
   },
@@ -72,6 +81,15 @@ local plugings = {
     lazy = false,
     dependencies = { "MunifTanjim/nui.nvim" },
     opts = {},
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    build = "cd app && pnpm install",
+    init = function()
+      vim.g.mkdp_filetypes = { "markdown" }
+    end,
+    ft = { "markdown" },
   },
 }
 return plugings
