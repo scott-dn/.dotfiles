@@ -76,9 +76,9 @@ key = "Return"
 mods = "Shift"
 
 [window]
-decorations = "buttonless"
+decorations = "None"
 dynamic_title = true
-startup_mode = "SimpleFullscreen"
+startup_mode = "Fullscreen"
 option_as_alt = "OnlyLeft"
 
 [window.dimensions]
