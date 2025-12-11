@@ -89,3 +89,11 @@ export GPG_TTY=$(tty)
 ################################################################################
 # terraform auto complete
 complete -o nospace -C /opt/homebrew/bin/terraform terraform
+
+# pnpm
+export PNPM_HOME="/home/scottdang/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
