@@ -1,11 +1,12 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 export XDG_CONFIG_HOME="$HOME/.config"
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-export PATH="$HOME/.local/share/solana/install/active_release/bin:$PATH"
-export PATH="$HOME/go/bin:$PATH"
+
 export PATH="$HOME/.local/bin:$PATH"
+
+export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+
 export PATH="/Applications/Godot.app/Contents/MacOS:$PATH"
 
 # theme
@@ -31,7 +32,6 @@ plugins=(
   git
   rust
   golang
-  solana # manual
   zsh-completions
   zsh-autosuggestions
   zsh-syntax-highlighting
@@ -54,6 +54,8 @@ alias lt='ls --tree'
 alias lg="lazygit"
 
 alias python="python3"
+
+alias p="pnpm"
 
 alias tf='terraform'
 alias gd='Godot'
