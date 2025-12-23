@@ -78,14 +78,37 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 export UPDATE_ZSH_DAYS=5
 
 ################################################################################
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
-
-export GPG_TTY=$(tty)
+# aptos auto complete
+AUTO_COMPLETE_DIR="$HOME/.oh-my-zsh/custom/plugins/aptos"
+if [ ! -d "$AUTO_COMPLETE_DIR" ]; then
+  mkdir -p "$AUTO_COMPLETE_DIR"
+  aptos config generate-shell-completions --shell zsh --output-file "$AUTO_COMPLETE_DIR/aptos.plugin.zsh" 1> /dev/null
+fi
+unset AUTO_COMPLETE_DIR
 
 ################################################################################
-# terraform auto complete
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
+# codex auto complete
+AUTO_COMPLETE_DIR="$HOME/.oh-my-zsh/custom/plugins/codex"
+if [ ! -d "$AUTO_COMPLETE_DIR" ]; then
+  mkdir -p "$AUTO_COMPLETE_DIR"
+  codex completion zsh > "$AUTO_COMPLETE_DIR/codex.plugin.zsh"
+fi
+unset AUTO_COMPLETE_DIR
+
+################################################################################
+# pnpm auto complete
+AUTO_COMPLETE_DIR="$HOME/.oh-my-zsh/custom/plugins/pnpm"
+if [ ! -d "$AUTO_COMPLETE_DIR" ]; then
+  mkdir -p "$AUTO_COMPLETE_DIR"
+  pnpm completion zsh > "$AUTO_COMPLETE_DIR/pnpm.plugin.zsh"
+fi
+unset AUTO_COMPLETE_DIR
+
+################################################################################
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
