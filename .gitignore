@@ -18,3 +18,7 @@
 !/.config/lazygit
 /.config/lazygit/*
 !/.config/lazygit/config.yml
+
+!/.config/fontconfig
+/.config/fontconfig/*
+!/.config/fontconfig/fonts.conf
