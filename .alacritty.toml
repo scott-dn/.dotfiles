@@ -36,19 +36,19 @@ TERM = "xterm-256color"
 size = 12.0
 
 [font.bold]
-family = "JetBrainsMono Nerd Font"
+family = "monospace"
 style = "Bold"
 
 [font.bold_italic]
-family = "JetBrainsMono Nerd Font"
+family = "monospace"
 style = "Bold Italic"
 
 [font.italic]
-family = "JetBrainsMono Nerd Font"
+family = "monospace"
 style = "Italic"
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+family = "monospace"
 style = "Regular"
 
 [font.offset]
@@ -76,9 +76,9 @@ key = "Return"
 mods = "Shift"
 
 [window]
-decorations = "buttonless"
+decorations = "None"
 dynamic_title = true
-startup_mode = "SimpleFullscreen"
+startup_mode = "Fullscreen"
 option_as_alt = "OnlyLeft"
 
 [window.dimensions]
