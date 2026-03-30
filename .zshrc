@@ -10,10 +10,10 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # ========================================================================================
 # MacOS
 # ========================================================================================
-export PATH="/Applications/Godot.app/Contents/MacOS:$PATH"
+# export PATH="/Applications/Godot.app/Contents/MacOS:$PATH"
 
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+# export PATH="/opt/homebrew/bin:$PATH"
+# export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 # ========================================================================================
 
 # theme
