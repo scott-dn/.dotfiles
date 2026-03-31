@@ -17,6 +17,7 @@
 /.claude/*
 
 !/.claude/statusline-command.sh
+!/.claude/settings.json
 
 # ============================================================
 # Config
