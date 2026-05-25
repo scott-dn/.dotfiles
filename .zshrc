@@ -109,7 +109,7 @@ esac
 
 ################################################################################
 # update everything
-update_all() {
+update_devtools() {
   setopt local_options err_return
 
   brew upgrade
