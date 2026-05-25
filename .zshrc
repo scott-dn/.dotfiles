@@ -45,7 +45,11 @@ plugins=(
   zsh-syntax-highlighting
 )
 
-source $ZSH/oh-my-zsh.sh
+# plugin/update config (must be set before sourcing oh-my-zsh)
+zstyle ':omz:plugins:nvm' lazy yes
+zstyle ':omz:update' frequency 5
+
+source "$ZSH/oh-my-zsh.sh"
 
 ZSH_HIGHLIGHT_STYLES[comment]='fg=#808080'
 
@@ -82,35 +86,17 @@ zstyle :bracketed-paste-magic paste-init pasteinit
 zstyle :bracketed-paste-magic paste-finish pastefinish
 
 ################################################################################
-# Autoupdate update zsh plugins
-export UPDATE_ZSH_DAYS=5
-
-################################################################################
-# aptos auto complete
-AUTO_COMPLETE_DIR="$HOME/.oh-my-zsh/custom/plugins/aptos"
-if [ ! -d "$AUTO_COMPLETE_DIR" ]; then
-  mkdir -p "$AUTO_COMPLETE_DIR"
-  aptos config generate-shell-completions --shell zsh --output-file "$AUTO_COMPLETE_DIR/aptos.plugin.zsh" 1> /dev/null
-fi
-unset AUTO_COMPLETE_DIR
-
-################################################################################
-# codex auto complete
-AUTO_COMPLETE_DIR="$HOME/.oh-my-zsh/custom/plugins/codex"
-if [ ! -d "$AUTO_COMPLETE_DIR" ]; then
-  mkdir -p "$AUTO_COMPLETE_DIR"
-  codex completion zsh > "$AUTO_COMPLETE_DIR/codex.plugin.zsh"
-fi
-unset AUTO_COMPLETE_DIR
-
-################################################################################
-# pnpm auto complete
-AUTO_COMPLETE_DIR="$HOME/.oh-my-zsh/custom/plugins/pnpm"
-if [ ! -d "$AUTO_COMPLETE_DIR" ]; then
-  mkdir -p "$AUTO_COMPLETE_DIR"
-  pnpm completion zsh > "$AUTO_COMPLETE_DIR/pnpm.plugin.zsh"
-fi
-unset AUTO_COMPLETE_DIR
+# generate omz completion plugins on first run
+ensure_omz_completion() {
+  local name=$1 cmd=$2
+  local dir="$ZSH/custom/plugins/$name"
+  [[ -d $dir ]] && return
+  mkdir -p "$dir"
+  eval "$cmd" > "$dir/$name.plugin.zsh"
+}
+ensure_omz_completion aptos "aptos config generate-shell-completions --shell zsh --output-file /dev/stdout"
+ensure_omz_completion codex "codex completion zsh"
+ensure_omz_completion pnpm  "pnpm completion zsh"
 
 ################################################################################
 # pnpm
@@ -120,3 +106,21 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+################################################################################
+# update everything
+update_all() {
+  setopt local_options err_return
+
+  brew upgrade
+  brew update
+
+  rustup update
+
+  omz update
+  upgrade_oh_my_zsh_custom
+
+  claude update
+
+  nvm install --lts
+}
