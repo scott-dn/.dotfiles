@@ -45,10 +45,6 @@ plugins=(
   zsh-syntax-highlighting
 )
 
-# plugin/update config (must be set before sourcing oh-my-zsh)
-zstyle ':omz:plugins:nvm' lazy yes
-zstyle ':omz:update' frequency 5
-
 source "$ZSH/oh-my-zsh.sh"
 
 ZSH_HIGHLIGHT_STYLES[comment]='fg=#808080'
@@ -105,7 +101,6 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
 
 ################################################################################
 # update everything
