@@ -118,4 +118,10 @@ update_devtools() {
   claude update
 
   nvm install --lts
+
+  # alacritty
+
+  # nvim lazy + mason
+
+  # tmux plugin update
 }
