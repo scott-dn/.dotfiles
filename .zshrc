@@ -103,6 +103,19 @@ case ":$PATH:" in
 esac
 
 ################################################################################
+# build & install alacritty from source
+update_alacritty() {
+  setopt local_options err_return
+  local repo="$HOME/alacritty"
+
+  [[ -d $repo/.git ]] || git clone --depth 1 https://github.com/alacritty/alacritty.git "$repo"
+  git -C "$repo" fetch --depth 1 origin master && git -C "$repo" checkout -f FETCH_HEAD
+
+  make -C "$repo" app
+  cp -r $repo/target/release/osx/Alacritty.app /Applications/
+}
+
+################################################################################
 # update everything
 update_devtools() {
   setopt local_options err_return
@@ -120,6 +133,7 @@ update_devtools() {
   nvm install --lts
 
   # alacritty
+  update_alacritty
 
   # nvim lazy + mason
 
