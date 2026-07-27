@@ -35,7 +35,7 @@ plugins=(
   docker-compose
   nvm
   npm
-  pnpm
+  pnpm # manual
   yarn
   git
   rust
@@ -83,16 +83,20 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 
 ################################################################################
 # generate omz completion plugins on first run
+# $cmd writes to $out itself and its stdout is dropped: aptos prints a
+# {"Result": "Success"} blob alongside the script, which zsh then tries to run.
+# Bail out on a failed or empty run so a broken file isn't cached forever.
 ensure_omz_completion() {
   local name=$1 cmd=$2
   local dir="$ZSH/custom/plugins/$name"
+  local out="$dir/$name.plugin.zsh"
   [[ -d $dir ]] && return
   mkdir -p "$dir"
-  eval "$cmd" > "$dir/$name.plugin.zsh"
+  eval "$cmd" >/dev/null && [[ -s $out ]] || rm -rf "$dir"
 }
-ensure_omz_completion aptos "aptos config generate-shell-completions --shell zsh --output-file /dev/stdout"
-ensure_omz_completion codex "codex completion zsh"
-ensure_omz_completion pnpm  "pnpm completion zsh"
+ensure_omz_completion aptos 'aptos config generate-shell-completions --shell zsh --output-file "$out"'
+ensure_omz_completion codex 'codex completion zsh > "$out"'
+ensure_omz_completion pnpm  'pnpm completion zsh > "$out"'
 
 ################################################################################
 # pnpm
@@ -116,6 +120,33 @@ update_alacritty() {
 }
 
 ################################################################################
+# update nvim plugins (lazy) + lsp/formatter tools (mason)
+update_nvim() {
+  setopt local_options err_return
+
+  # bang runs it synchronously, otherwise headless nvim quits mid-sync
+  nvim --headless "+Lazy! sync" +qa
+
+  # :MasonUpdate only refreshes the registry index, so diff installed against
+  # latest ourselves and pick up anything in chadrc's mason.pkgs that's missing.
+  # :MasonInstall blocks and exits non-zero on failure when headless.
+  nvim --headless -c MasonUpdate -c 'lua
+    local reg = require "mason-registry"
+    local todo = {}
+    for _, spec in ipairs(require("nvconfig").mason.pkgs) do
+      local name = spec:match "^([^@]+)"
+      local ok, pkg = pcall(reg.get_package, name)
+      if ok and not pkg:is_installed() then todo[#todo + 1] = name end
+    end
+    for _, pkg in ipairs(reg.get_installed_packages()) do
+      if pkg:get_installed_version() ~= pkg:get_latest_version() then todo[#todo + 1] = pkg.name end
+    end
+    if #todo == 0 then print "mason: up to date" return end
+    vim.cmd("MasonInstall " .. table.concat(todo, " "))
+  ' +qa
+}
+
+################################################################################
 # update everything
 update_devtools() {
   setopt local_options err_return
@@ -136,6 +167,7 @@ update_devtools() {
   update_alacritty
 
   # nvim lazy + mason
+  update_nvim
 
   # tmux plugin update
 }
