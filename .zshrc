@@ -156,8 +156,7 @@ update_devtools() {
 
   rustup update
 
-  omz update
-  upgrade_oh_my_zsh_custom
+  upgrade_oh_my_zsh_all
 
   claude update
 
