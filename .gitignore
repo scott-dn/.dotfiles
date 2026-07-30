@@ -2,13 +2,12 @@
 !/.ideavimrc
 !/.gitignore
 !/.gitconfig
-!/alacritty.yml
-!/.alacritty.toml
 !/.tmux.conf
 !/.zshrc
 !/LICENSE
 !/README.md
 !/screenshot.png
+!/keyboard_shortcuts.kksrc
 
 # ============================================================
 # SSH (config only — never the private keys)
@@ -38,3 +37,21 @@
 !/.config/lazygit
 /.config/lazygit/*
 !/.config/lazygit/config.yml
+
+!/.config/fontconfig
+/.config/fontconfig/*
+!/.config/fontconfig/fonts.conf
+
+# ============================================================
+# Fonts
+# ============================================================
+!/.local
+/.local/*
+
+!/.local/share
+/.local/share/*
+
+!/.local/share/fonts
+/.local/share/fonts/*
+
+!/.local/share/fonts/NotoColorEmoji.ttf

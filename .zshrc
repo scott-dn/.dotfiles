@@ -6,14 +6,15 @@ export PATH="$HOME/.local/bin:$PATH"
 
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
 
 # ========================================================================================
 # MacOS
 # ========================================================================================
-export PATH="/Applications/Godot.app/Contents/MacOS:$PATH"
+# export PATH="/Applications/Godot.app/Contents/MacOS:$PATH"
 
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+# export PATH="/opt/homebrew/bin:$PATH"
+# export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 # ========================================================================================
 
 # theme
@@ -115,8 +116,18 @@ update_alacritty() {
   [[ -d $repo/.git ]] || git clone --depth 1 https://github.com/alacritty/alacritty.git "$repo"
   git -C "$repo" fetch --depth 1 origin master && git -C "$repo" checkout -f FETCH_HEAD
 
-  make -C "$repo" app
-  cp -r $repo/target/release/osx/Alacritty.app /Applications/
+  # 1. build (fontconfig headers come from brew since this is an atomic distro)
+  mkdir -p "$HOME/.local/bin"
+  brew list fontconfig &>/dev/null || brew install fontconfig
+  PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig:$PKG_CONFIG_PATH" \
+    cargo build --release --manifest-path "$repo/Cargo.toml"
+  cp -f "$repo/target/release/alacritty" "$HOME/.local/bin/alacritty"
+
+  # 2. desktop entry
+  mkdir -p "$HOME/.local/share/applications"
+  cp "$repo/extra/linux/Alacritty.desktop" "$HOME/.local/share/applications/"
+  mkdir -p "$HOME/.local/share/icons" # logo (named to match Icon=Alacritty in the desktop entry)
+  cp "$repo/extra/logo/alacritty-term.svg" "$HOME/.local/share/icons/Alacritty.svg"
 }
 
 ################################################################################
@@ -151,8 +162,7 @@ update_nvim() {
 update_devtools() {
   setopt local_options err_return
 
-  brew upgrade
-  brew update
+  ujust update
 
   rustup update
 
