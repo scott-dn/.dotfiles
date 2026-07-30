@@ -1,5 +1,5 @@
 vim.opt.colorcolumn = "100"
-vim.o.relativenumber =true
+vim.o.relativenumber = true
 
 vim.wo.wrap = false
 
@@ -10,6 +10,10 @@ vim.opt.expandtab = true
 
 vim.opt.list = true
 vim.opt.listchars = { tab = "│ ", trail = "·", extends = "→", precedes = "←" }
+
+if vim.fn.executable "zsh" == 1 then
+  vim.o.shell = "zsh"
+end
 
 -- auto save
 vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
