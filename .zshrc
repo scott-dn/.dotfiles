@@ -24,7 +24,6 @@ SPACESHIP_TIME_SHOW=true
 plugins=(
   autoupdate
   aptos # manual
-  codex # manual
   zsh-claudecode-completion
   fzf
   helm
@@ -95,7 +94,6 @@ ensure_omz_completion() {
   eval "$cmd" >/dev/null && [[ -s $out ]] || rm -rf "$dir"
 }
 ensure_omz_completion aptos 'aptos config generate-shell-completions --shell zsh --output-file "$out"'
-ensure_omz_completion codex 'codex completion zsh > "$out"'
 ensure_omz_completion pnpm  'pnpm completion zsh > "$out"'
 
 ################################################################################
