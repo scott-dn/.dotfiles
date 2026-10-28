@@ -10,10 +10,10 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # ========================================================================================
 # MacOS
 # ========================================================================================
-export PATH="/Applications/Godot.app/Contents/MacOS:$PATH"
+# export PATH="/Applications/Godot.app/Contents/MacOS:$PATH"
 
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+# export PATH="/opt/homebrew/bin:$PATH"
+# export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 # ========================================================================================
 
 # theme
@@ -105,19 +105,6 @@ case ":$PATH:" in
 esac
 
 ################################################################################
-# build & install alacritty from source
-update_alacritty() {
-  setopt local_options err_return
-  local repo="$HOME/alacritty"
-
-  [[ -d $repo/.git ]] || git clone --depth 1 https://github.com/alacritty/alacritty.git "$repo"
-  git -C "$repo" fetch --depth 1 origin master && git -C "$repo" checkout -f FETCH_HEAD
-
-  make -C "$repo" app
-  cp -r $repo/target/release/osx/Alacritty.app /Applications/
-}
-
-################################################################################
 # update nvim plugins (lazy) + lsp/formatter tools (mason)
 update_nvim() {
   setopt local_options err_return
@@ -149,8 +136,9 @@ update_nvim() {
 update_devtools() {
   setopt local_options err_return
 
-  brew upgrade
-  brew update
+  sudo pacman -Syu
+
+  yay -Sua
 
   rustup update
 
@@ -159,9 +147,6 @@ update_devtools() {
   claude update
 
   nvm install --lts
-
-  # alacritty
-  update_alacritty
 
   # nvim lazy + mason
   update_nvim

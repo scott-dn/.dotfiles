@@ -1,6 +1,9 @@
 [general]
 live_config_reload = true
 
+[terminal.shell]
+program = "/usr/bin/zsh"
+
 [colors.bright]
 black = "0x5c6370"
 blue = "0x61afef"
@@ -76,9 +79,9 @@ key = "Return"
 mods = "Shift"
 
 [window]
-decorations = "buttonless"
+decorations = "None"
 dynamic_title = true
-startup_mode = "SimpleFullscreen"
+startup_mode = "Maximized"
 option_as_alt = "OnlyLeft"
 
 [window.dimensions]
